@@ -1,0 +1,11 @@
+.sofaLuzApagada {
+    animation-duration: 15s;
+    animation-name: tremor-sofa;
+    animation-iteration-count: infinite;
+}
+.imgSofa{
+    position: fixed;
+    bottom: -15%;
+    right: 15%;
+    width: 50%;
+}

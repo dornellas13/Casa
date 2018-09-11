@@ -1,0 +1,18 @@
+<main [ngClass]="(LuzAcesa) ? '': 'body' ">
+  <div class="container" role="content">
+    <p class="text">{{NomeVagalume}}</p>
+    <div class="row">
+      <div class="col-md-12">
+        <img class="card-img-top imgSize" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/{{LuzAcesa}}.png" alt="lampada acesa">
+        <img class="imgLivros" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633050/projeto-casa/livro.png">
+        <div *ngIf="!LuzAcesa">
+          <div>
+            <img *ngFor="let vagalume of vagalumes" (mouseout)="TrocaNomeVagalume('')" (mouseover)="TrocaNomeVagalume(vagalume.nome)" [ngStyle]="{'bottom': vagalume.bottom, 'left': vagalume.left}" class="imgVagalume" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/vagalume.png">
+          </div>
+        </div>
+        <img (click)="AcenderApagarLuz()" class="imgInterruptor" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/interruptor.png">
+        <sofa [LuzAcesa]="LuzAcesa"></sofa>
+      </div>
+    </div>
+  </div>
+</main>
