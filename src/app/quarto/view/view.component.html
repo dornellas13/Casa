@@ -1,17 +1,19 @@
-<main [ngClass]="(LuzAcesa) ? '': 'body' ">
+<main [ngClass]="(LuzAcesa) ? '': 'body' " role="content">
   <div class="container" role="content">
     <p class="text">{{NomeVagalume}}</p>
     <div class="row">
       <div class="col-md-12">
-        <img class="card-img-top imgSize" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/{{LuzAcesa}}.png" alt="lampada acesa">
-        <img class="imgLivros" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633050/projeto-casa/livro.png">
-        <div *ngIf="!LuzAcesa">
-          <div>
-            <img *ngFor="let vagalume of vagalumes" (mouseout)="TrocaNomeVagalume('')" (mouseover)="TrocaNomeVagalume(vagalume.nome)" [ngStyle]="{'bottom': vagalume.bottom, 'left': vagalume.left}" class="imgVagalume" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/vagalume.png">
-          </div>
-        </div>
-        <img (click)="AcenderApagarLuz()" class="imgInterruptor" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/interruptor.png">
-        <sofa [LuzAcesa]="LuzAcesa"></sofa>
+        <figure>
+            <img alt="lâmpada no teto do quarto" role="image" [ngClass]="(LuzAcesa) ? 'card-img-top imgSize imgSizeOn': 'card-img-top imgSize'" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/{{LuzAcesa}}.png" alt="lampada acesa">
+            <img alt="pratelira de livros presa na parede" role="image" [ngClass]="(LuzAcesa) ? 'imgLivros' : 'imgLivros prateleiraDeslizando'" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633050/projeto-casa/livro.png">
+            <div *ngIf="!LuzAcesa">
+              <div>
+                <img alt="vagalume voando pelo quarto" role="image" *ngFor="let vagalume of vagalumes" (mouseout)="TrocaNomeVagalume('')" (mouseover)="TrocaNomeVagalume(vagalume.nome)" [ngStyle]="{'bottom': vagalume.bottom, 'left': vagalume.left}" class="imgVagalume" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/vagalume.png">
+              </div>
+            </div>
+            <img alt="interruptor da parede" role="image" (click)="AcenderApagarLuz()" [ngClass]="(LuzAcesa) ? 'imgInterruptor': 'imgInterruptor interruptorDeslizando'" src="https://res.cloudinary.com/dlsawmncp/image/upload/v1536633049/projeto-casa/interruptor.png">
+            <sofa [LuzAcesa]="LuzAcesa"></sofa>
+        </figure>
       </div>
     </div>
   </div>
